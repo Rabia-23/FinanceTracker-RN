@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "Finance Tracker",
+    "slug": "finance-app-rn",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "ios": { "supportsTablet": false, "bundleIdentifier": "com.financeapp.rn" },
+    "android": { "package": "com.financeapp.rn" },
+    "plugins": ["expo-asset", "expo-sharing"]
+  }
+}
