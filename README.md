@@ -1,7 +1,9 @@
 # Hafta 1 - İlerleme Raporu
 
 **Tarih:** 16.03.2026
+
 **Proje:** Kişisel Finans Takip Sistemi - React Native
+
 **GitHub:** https://github.com/Rabia-23/FinanceApp-RN
 
 ---
