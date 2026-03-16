@@ -24,7 +24,7 @@
 
 ## Video
 
-> Video linki buraya eklenecek
+> https://drive.google.com/file/d/1jF6_f3R3DOVVwwfXEkosY3orU0h0b3t7/view?usp=sharing
 
 ---
 
