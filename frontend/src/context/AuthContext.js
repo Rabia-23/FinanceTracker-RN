@@ -37,9 +37,9 @@ export function AuthProvider({ children }) {
          {children}
       </AuthContext.Provider>
    );
-   }
+}
 
-   export function useAuth() {
+export function useAuth() {
    const ctx = useContext(AuthContext);
    if (!ctx) throw new Error('useAuth must be inside AuthProvider');
    return ctx;
