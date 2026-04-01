@@ -61,3 +61,34 @@ Backend (ASP.NET Core) port numarası değişirse src/constants/api.js dosyasın
 ## Video
 
 > https://drive.google.com/file/d/1zukxeEPZ6MY9nxemes1KAS76_Zi-tb0F/view?usp=sharing
+
+## Hafta 3 - İlerleme Raporu
+
+**Tarih:** 01.04.2026
+
+---
+
+### Hafta-3 Yapılanlar
+
+- Ana Sayfa Bölüm 2 tamamlandı
+- getHomeData servisi ve HOME_ME endpoint'i eklendi
+- Gelir / Gider özet kutuları (yeşil border = gelir, kırmızı = gider)
+- Çizgi grafik: react-native-chart-kit ile gelir vs gider karşılaştırması
+- Pasta grafik: gelir/gider oranı görselleştirme
+- Bütçeler bölümü: progress bar ile harcama takibi
+  - %0-60 yeşil, %60-90 sarı, %90+ kırmızı
+- Son 5 işlem listesi (tarih+kategori+tutar)
+- Pull-to-refresh (ekranı aşağı çekme ile yenileme) eklendi
+- getBudgets servisi eklendi
+
+---
+
+## Video
+
+> https://drive.google.com/file/d/1EOlacBCNdTuydcQ4ftwdDKvzkO1YTV9d/view?usp=sharing
+
+---
+
+## Notlar
+
+Grafiklerin görünmesi için en az bir işlem kaydedilmiş olması gerekiyor.

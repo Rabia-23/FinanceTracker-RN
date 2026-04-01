@@ -8,7 +8,7 @@ export default function CurrencyScreen() {
     <View style={s.root}>
       <Ionicons name="construct-outline" size={48} color={COLORS.textMuted} />
       <Text style={s.title}>Döviz</Text>
-      <Text style={s.sub}>Bu ekran 6. haftada geliştirilecek</Text>
+      <Text style={s.sub}>Bu ekran 8. haftada geliştirilecek</Text>
     </View>
   );
 }

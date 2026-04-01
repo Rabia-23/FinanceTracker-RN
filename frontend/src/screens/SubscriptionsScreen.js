@@ -8,7 +8,7 @@ export default function SubscriptionsScreen() {
     <View style={s.root}>
       <Ionicons name="construct-outline" size={48} color={COLORS.textMuted} />
       <Text style={s.title}>Abonelikler</Text>
-      <Text style={s.sub}>Bu ekran 4. haftada geliştirilecek</Text>
+      <Text style={s.sub}>Bu ekran 6. haftada geliştirilecek</Text>
     </View>
   );
 }

@@ -8,7 +8,7 @@ export default function GoalsScreen() {
     <View style={s.root}>
       <Ionicons name="construct-outline" size={48} color={COLORS.textMuted} />
       <Text style={s.title}>Hedefler</Text>
-      <Text style={s.sub}>Bu ekran 5. haftada geliştirilecek</Text>
+      <Text style={s.sub}>Bu ekran 7. haftada geliştirilecek</Text>
     </View>
   );
 }
