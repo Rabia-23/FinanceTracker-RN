@@ -95,7 +95,7 @@ Grafiklerin görünmesi için en az bir işlem kaydedilmiş olması gerekiyor.
 
 ## Hafta 4 - İlerleme Raporu
 
-**Tarih:** 08.04.2026
+**Tarih:** 06.04.2026
 
 ---
 
