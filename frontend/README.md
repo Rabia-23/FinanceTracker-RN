@@ -92,3 +92,28 @@ Backend (ASP.NET Core) port numarası değişirse src/constants/api.js dosyasın
 ## Notlar
 
 Grafiklerin görünmesi için en az bir işlem kaydedilmiş olması gerekiyor.
+
+## Hafta 4 - İlerleme Raporu
+
+**Tarih:** 08.04.2026
+
+---
+
+### Hafta-4 Yapılanlar
+
+- İşlemler ekranına başlandı
+- İşlem listesi tarihe göre gruplandırılmış şekilde gösteriliyor
+- Her işlem kartında: gelir/gider ikonu, başlık, kategori, saat, tutar
+- Filtre sistemi eklendi:
+  - Gelir / Gider türü filtresi
+  - Aylara göre filtre (Ocak-Aralık)
+  - Kategoriye göre filtre
+- Filtreler yatay kaydırılabilir chip butonlarla uygulanıyor
+- Sonuç sayısı gösterimi eklendi
+- İşlem ekleme/düzenleme Hafta 5'te eklenecek
+
+---
+
+## Video
+
+> https://drive.google.com/file/d/1Z-1T2z_n_leLeH_dDdqBOvOt0ZRGcCw-/view?usp=sharing
