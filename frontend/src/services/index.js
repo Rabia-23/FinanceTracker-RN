@@ -14,8 +14,10 @@ export const createAccount = (dto)    => apiClient.post(ENDPOINTS.ACCOUNTS, dto)
 export const deleteAccount = (id)     => apiClient.delete(`${ENDPOINTS.ACCOUNTS}/${id}`).then(r => r.data);
 
 // ─── TRANSACTIONS ───
-// createTransaction, updateTransaction, deleteTransaction Hafta 5'te eklenecek
-export const getTransactions = (userId) => apiClient.get(`${ENDPOINTS.TRANSACTIONS}/${userId}`).then(r => r.data);
+export const getTransactions = (userId)   => apiClient.get(`${ENDPOINTS.TRANSACTIONS}/${userId}`).then(r => r.data);
+export const createTransaction = (dto)    => apiClient.post(ENDPOINTS.TRANSACTIONS, dto).then(r => r.data);
+export const updateTransaction = (id,dto) => apiClient.put(`${ENDPOINTS.TRANSACTIONS}/${id}`, dto).then(r => r.data);
+export const deleteTransaction = (id)     => apiClient.delete(`${ENDPOINTS.TRANSACTIONS}/${id}`).then(r => r.data);
 
 // ─── BUDGETS ───
 export const getBudgets   = (userId) => apiClient.get(`${ENDPOINTS.BUDGETS}/${userId}`).then(r => r.data);
