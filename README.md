@@ -117,3 +117,30 @@ Grafiklerin görünmesi için en az bir işlem kaydedilmiş olması gerekiyor.
 ## Video
 
 > https://drive.google.com/file/d/1Z-1T2z_n_leLeH_dDdqBOvOt0ZRGcCw-/view?usp=sharing
+
+## Hafta 5 - İlerleme Raporu
+
+**Tarih:** 01.05.2026
+
+---
+
+### Hafta-5 Yapılanlar
+
+- İşlemler ekranı tamamlandı.
+- "Yeni işlem ekleme modulu" eklendi.
+  - tür, başlık, tutar, kategori, hesap seçimi, not
+- İşlem düzenleme eklendi (Yeni işlem ekleme modulu).
+- CSV dışarı aktarma eklendi.
+- createTransaction, updateTransaction, deleteTransaction servisleri eklendi.
+
+---
+
+## Video
+
+> https://drive.google.com/file/d/1SwaM4cDmtlsgJFYmTfxgi3WEucnYYdwG/view?usp=sharing
+
+## Notlar
+
+Kodun Github'a yüklenmesi ve video çekimi 01.05.2026 tarihinde yapıldı. README.md güncellenmediği için README.md güncelleme tarihi 12.05.2026 görünüyor. Yani;
+videonun ve kodun pushlanma tarihi - 01.05.2026,
+README.md güncellemesi - 12.05.2026
