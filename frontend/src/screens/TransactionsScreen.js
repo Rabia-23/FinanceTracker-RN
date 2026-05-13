@@ -256,7 +256,11 @@ export default function TransactionsScreen() {
                   } catch { return date; }
                })()}
                </Text>
-               {groups[date].map(t => (
+               {groups[date].sort((a, b) => {
+                  const timeA = a.transactionTime?.slice(0,5) || '00:00';
+                  const timeB = b.transactionTime?.slice(0,5) || '00:00';
+                  return timeB.localeCompare(timeA);
+               }).map(t => (
                <TouchableOpacity key={t.transactionId} style={s.txCard}
                   onPress={() => openEdit(t)}
                   onLongPress={() => handleDelete(t)}>

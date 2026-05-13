@@ -96,7 +96,7 @@ namespace FinanceWebAPI.Controllers
             return NoContent();
       }
 
-      // POST: api/Subscriptions/{id}/pay
+
       // POST: api/Subscriptions/{id}/pay
       [HttpPost("{id}/pay")]
       public async Task<IActionResult> PaySubscription(int id, [FromBody] PaySubscriptionDto dto)
@@ -131,10 +131,21 @@ namespace FinanceWebAPI.Controllers
 
             _context.Transactions.Add(transaction);
 
+            // Tüm aktif bütçelere abonelik ödemesini işle
+            var txDate = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Utc);
+            var activeBudgets = await _context.Budgets
+               .Where(b => b.UserId == subscription.UserId
+                  && b.StartDate <= txDate
+                  && b.EndDate >= txDate)
+               .ToListAsync();
+
+            foreach (var budget in activeBudgets)
+               budget.SpentAmount += subscription.MonthlyFee;
+
             subscription.NextPaymentDate = DateTime.SpecifyKind(
                subscription.NextPaymentDate.AddMonths(1), 
                DateTimeKind.Utc
-            ); // Bu da UTC olmalı
+            );
             subscription.IsOverdue = false;
 
             await _context.SaveChangesAsync();
@@ -172,7 +183,7 @@ namespace FinanceWebAPI.Controllers
             subscription.NextPaymentDate = DateTime.SpecifyKind(
                   subscription.NextPaymentDate.AddMonths(1), 
                   DateTimeKind.Utc
-            ); // UTC olarak belirt
+            );
             subscription.IsOverdue = false;
 
             await _context.SaveChangesAsync();

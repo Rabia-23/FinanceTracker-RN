@@ -108,17 +108,13 @@ namespace FinanceWebAPI.Controllers
                      Console.WriteLine($"[DEBUG] Result: {parsedDate >= b.StartDate && parsedDate <= b.EndDate}");
                   }
 
-                  var activeBudget = allBudgets
-                     .FirstOrDefault(b => parsedDate >= b.StartDate && parsedDate <= b.EndDate);
+                  var activeBudgets = allBudgets
+                     .Where(b => parsedDate >= b.StartDate && parsedDate <= b.EndDate)
+                     .ToList();
 
-                  if (activeBudget != null)
+                  foreach (var activeBudget in activeBudgets)
                   {
-                     Console.WriteLine($"[DEBUG] Active budget found! Updating spentAmount from {activeBudget.SpentAmount} to {activeBudget.SpentAmount + transaction.TransactionAmount}");
                      activeBudget.SpentAmount += transaction.TransactionAmount;
-                  }
-                  else
-                  {
-                     Console.WriteLine("[DEBUG] ❌ NO active budget found!");
                   }
             }
 
@@ -158,16 +154,14 @@ namespace FinanceWebAPI.Controllers
          // ESKİ TRANSACTION'IN BUDGET ETKİSİNİ GERİ AL
          if (transaction.TransactionType == "Expense")
          {
-            var oldBudget = await _context.Budgets
-                  .Where(b => b.UserId == transaction.UserId 
-                     && b.StartDate <= transaction.TransactionDate 
-                     && b.EndDate >= transaction.TransactionDate)
-                  .FirstOrDefaultAsync();
+            var oldBudgets = await _context.Budgets
+               .Where(b => b.UserId == transaction.UserId 
+                  && b.StartDate <= transaction.TransactionDate 
+                  && b.EndDate >= transaction.TransactionDate)
+               .ToListAsync();
 
-            if (oldBudget != null)
-            {
-                  oldBudget.SpentAmount -= transaction.TransactionAmount;
-            }
+            foreach (var oldBudget in oldBudgets)
+               oldBudget.SpentAmount -= transaction.TransactionAmount;
          }
 
          // AccountBalance'i eski haline cevir
@@ -194,16 +188,14 @@ namespace FinanceWebAPI.Controllers
          // YENİ TRANSACTION'IN BUDGET ETKİSİNİ EKLE
          if (transaction.TransactionType == "Expense")
          {
-            var newBudget = await _context.Budgets
-                  .Where(b => b.UserId == transaction.UserId 
-                     && b.StartDate <= transaction.TransactionDate 
-                     && b.EndDate >= transaction.TransactionDate)
-                  .FirstOrDefaultAsync();
+            var newBudgets = await _context.Budgets
+               .Where(b => b.UserId == transaction.UserId 
+                  && b.StartDate <= transaction.TransactionDate 
+                  && b.EndDate >= transaction.TransactionDate)
+               .ToListAsync();
 
-            if (newBudget != null)
-            {
-                  newBudget.SpentAmount += transaction.TransactionAmount;
-            }
+            foreach (var newBudget in newBudgets)
+               newBudget.SpentAmount += transaction.TransactionAmount;
          }
 
          await _context.SaveChangesAsync();
@@ -238,16 +230,14 @@ namespace FinanceWebAPI.Controllers
          // BUDGET'TEN HARCAMAYI ÇIKAR
          if (transaction.TransactionType == "Expense")
          {
-            var budget = await _context.Budgets
-                  .Where(b => b.UserId == transaction.UserId 
-                     && b.StartDate <= transaction.TransactionDate 
-                     && b.EndDate >= transaction.TransactionDate)
-                  .FirstOrDefaultAsync();
+            var budgets = await _context.Budgets
+               .Where(b => b.UserId == transaction.UserId 
+                  && b.StartDate <= transaction.TransactionDate 
+                  && b.EndDate >= transaction.TransactionDate)
+               .ToListAsync();
 
-            if (budget != null)
-            {
-                  budget.SpentAmount -= transaction.TransactionAmount;
-            }
+            foreach (var budget in budgets)
+               budget.SpentAmount -= transaction.TransactionAmount;
          }
 
          _context.Transactions.Remove(transaction);

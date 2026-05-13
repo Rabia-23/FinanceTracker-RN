@@ -29,6 +29,14 @@ function groupByDate(txs) {
       if (!groups[d]) groups[d] = [];
       groups[d].push(t);
    });
+   // Her gün içinde saate göre azalan sıralama (en geç en üstte)
+   Object.keys(groups).forEach(date => {
+      groups[date].sort((a, b) => {
+         const timeA = a.transactionTime?.slice(0,5) || '00:00';
+         const timeB = b.transactionTime?.slice(0,5) || '00:00';
+         return timeB.localeCompare(timeA);
+      });
+   });
    return groups;
 }
 
@@ -553,7 +561,7 @@ export default function HomeScreen() {
          <TouchableOpacity style={s.overlayDismiss} activeOpacity={1} onPress={() => setBudgetHistModal(false)}>
             <TouchableOpacity activeOpacity={1} style={s.modalCard}>
                <Text style={s.modalTitle}>Bütçe Geçmişi</Text>
-               <ScrollView style={{ maxHeight: 300 }} showsVerticalScrollIndicator={false}>
+               <ScrollView style={{ maxHeight: 400 }} showsVerticalScrollIndicator={true} persistentScrollbar={true}>
                {(() => {
                   if (!selectedBudget) return null;
                   const related = transactions.filter(t => {

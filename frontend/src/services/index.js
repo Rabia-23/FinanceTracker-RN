@@ -19,6 +19,13 @@ export const createTransaction = (dto)    => apiClient.post(ENDPOINTS.TRANSACTIO
 export const updateTransaction = (id,dto) => apiClient.put(`${ENDPOINTS.TRANSACTIONS}/${id}`, dto).then(r => r.data);
 export const deleteTransaction = (id)     => apiClient.delete(`${ENDPOINTS.TRANSACTIONS}/${id}`).then(r => r.data);
 
+// ─── SUBSCRIPTIONS ───
+export const getSubscriptions   = (userId)      => apiClient.get(`${ENDPOINTS.SUBSCRIPTIONS}/${userId}`).then(r => r.data);
+export const createSubscription = (dto)          => apiClient.post(ENDPOINTS.SUBSCRIPTIONS, dto).then(r => r.data);
+export const deleteSubscription = (id)           => apiClient.delete(`${ENDPOINTS.SUBSCRIPTIONS}/${id}`).then(r => r.data);
+export const paySubscription    = (id, dto)      => apiClient.post(`${ENDPOINTS.SUBSCRIPTIONS}/${id}/pay`, dto).then(r => r.data);
+export const skipSubscription   = (id)           => apiClient.post(`${ENDPOINTS.SUBSCRIPTIONS}/${id}/skip`, {}).then(r => r.data);
+
 // ─── BUDGETS ───
 export const getBudgets   = (userId) => apiClient.get(`${ENDPOINTS.BUDGETS}/${userId}`).then(r => r.data);
 export const createBudget = (dto)    => apiClient.post(ENDPOINTS.BUDGETS, dto).then(r => r.data);
