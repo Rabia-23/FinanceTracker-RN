@@ -144,3 +144,38 @@ Grafiklerin görünmesi için en az bir işlem kaydedilmiş olması gerekiyor.
 Kodun Github'a yüklenmesi ve video çekimi 01.05.2026 tarihinde yapıldı. README.md güncellenmediği için README.md güncelleme tarihi 12.05.2026 görünüyor. Yani;
 videonun ve kodun pushlanma tarihi - 01.05.2026,
 README.md güncellemesi - 12.05.2026
+
+## Hafta 6 - İlerleme Raporu
+
+**Tarih:** 13.05.2026
+
+---
+
+### Hafta-6 Yapılanlar
+
+- Abonelikler ekranı sıfırdan geliştirildi.
+- Özet kartları eklendi:
+   - Aylık toplam abonelik gideri
+   - Aktif abonelik sayısı
+   - Bu hafta içinde ödemesi yaklaşan abonelik sayısı
+- Abonelik kartları ödeme tarihine göre sıralı listeleniyor.
+- Gün sayacı ve renk kodlaması eklendi:
+   - 0-3 gün: kırmızı vurgu + sol kenar çizgisi
+   - 4-7 gün: turuncu vurgu
+   - Gecikmiş: "Gecikmiş" etiketi
+- Öde butonu eklendi: hesap seçim modalı ile ödeme yapılıyor, hesap bakiyesi otomatik düşülüyor ve işlemler tablosuna otomatik kayıt atılıyor.
+- Atla butonu eklendi: ödeme bir sonraki aya erteleniyor.
+- Yeni abonelik ekleme modalı eklendi: isim, aylık tutar, ödeme günü (1-31), kategori seçimi.
+- Abonelik silme eklendi.
+- getSubscriptions, createSubscription, deleteSubscription, paySubscription, skipSubscription servisleri eklendi.
+- AppNavigator güncellendi: Abonelik, Hedefler ve Döviz sekmeleri alt çubuğa eklendi.
+
+---
+
+## Video
+
+> https://drive.google.com/file/d/15L2qHEaHaAeK-6gHIthxaF6hFTDx6bZ5/view?usp=sharing
+
+## Notlar
+
+İşlemler sayfasında ve Ana sayfada aynı gün içerisindeki işlemlerin sıralanışı düzeltildi. Ana sayfada bütçe kartlarındaki sorun düzeltildi (yapılan bir işlemin geçerli olan bütün bütçeleri etkilemesi sağlanıldı). Bütçe geçmişinde scroll down ile o bütçeye ait işlemlerin hepsi gösterilebildi. AppNavigator.js'e bütün 5 sekme de eklendi.
