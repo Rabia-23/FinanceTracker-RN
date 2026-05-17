@@ -179,3 +179,28 @@ README.md güncellemesi - 12.05.2026
 ## Notlar
 
 İşlemler sayfasında ve Ana sayfada aynı gün içerisindeki işlemlerin sıralanışı düzeltildi. Ana sayfada bütçe kartlarındaki sorun düzeltildi (yapılan bir işlemin geçerli olan bütün bütçeleri etkilemesi sağlanıldı). Bütçe geçmişinde scroll down ile o bütçeye ait işlemlerin hepsi gösterilebildi. AppNavigator.js'e bütün 5 sekme de eklendi.
+
+## Hafta 7 - İlerleme Raporu
+
+**Tarih:** 17.05.2026
+
+---
+
+### Hafta-7 Yapılanlar
+
+- Hedefler ekranı sıfırdan geliştirildi.
+- Özet kartları eklendi: toplam hedef sayısı, tamamlanan sayısı, toplam birikim / hedef tutarı.
+- Hedef kartları progress bar ile ilerlemeyi gösteriyor.
+   - %0-40 sarı, %40-75 mavi, %75+ yeşil, tamamlandıysa "Tamamlandı" badge'i
+- Bitiş tarihine 7 gün veya daha az kaldığında gün sayısı kırmızıya dönüyor.
+- Katkı ekleme modalı eklendi: karta dokunulduğunda açılıyor, tutar, not ve hesap seçimi içeriyor.
+- Katkı yapılınca hesap bakiyesi düşülüyor ve işlemler tablosuna "Tasarruf" kategorisinde otomatik kayıt atılıyor.
+- Yeni hedef ekleme modalı eklendi: ad, tutar, başlangıç/bitiş tarihi, tür chip seçimi.
+- Hedef silme eklendi: uzun basma ile onay dialogu açılıyor.
+- getGoals, createGoal, deleteGoal, contributeToGoal servisleri eklendi.
+
+---
+
+## Video
+
+> https://drive.google.com/file/d/10ji90qw-KjodbdUmAp8ZuCcrKjnpFoO-/view?usp=sharing
