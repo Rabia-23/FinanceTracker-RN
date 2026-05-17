@@ -31,3 +31,9 @@ export const getBudgets   = (userId) => apiClient.get(`${ENDPOINTS.BUDGETS}/${us
 export const createBudget = (dto)    => apiClient.post(ENDPOINTS.BUDGETS, dto).then(r => r.data);
 export const updateBudget = (id,dto) => apiClient.put(`${ENDPOINTS.BUDGETS}/${id}`, dto).then(r => r.data);
 export const deleteBudget = (id)     => apiClient.delete(`${ENDPOINTS.BUDGETS}/${id}`).then(r => r.data);
+
+// ─── GOALS ───
+export const getGoals        = (userId)    => apiClient.get(`${ENDPOINTS.GOALS}/${userId}`).then(r => r.data);
+export const createGoal      = (dto)       => apiClient.post(ENDPOINTS.GOALS, dto).then(r => r.data);
+export const deleteGoal      = (id)        => apiClient.delete(`${ENDPOINTS.GOALS}/${id}`).then(r => r.data);
+export const contributeToGoal = (id, dto)  => apiClient.post(`${ENDPOINTS.GOALS}/${id}/contribute`, dto).then(r => r.data);
