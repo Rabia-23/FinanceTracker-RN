@@ -5,52 +5,51 @@ using FinanceWebAPI.DTOs;
 
 namespace FinanceWebAPI.Services
 {
-    public class CurrencyService
-    {
-        private readonly HttpClient _httpClient;
+   public class CurrencyService
+   {
+      private readonly HttpClient _httpClient;
 
-        public CurrencyService(HttpClient httpClient)
-        {
-            _httpClient = httpClient;
-        }
+      public CurrencyService(HttpClient httpClient)
+      {
+         _httpClient = httpClient;
+      }
 
-        public async Task<CurrencyDto> GetLatestCurrenciesAsync()
-        {
-            var url = "https://api.exchangerate.host/latest?base=TRY"; // TRY bazlı
-            var response = await _httpClient.GetAsync(url);
+      public async Task<CurrencyDto> GetLatestCurrenciesAsync()
+      {
+         var url = "https://api.frankfurter.app/latest?from=TRY&to=USD,EUR,GBP,CHF";
+         var response = await _httpClient.GetAsync(url);
 
-            if (!response.IsSuccessStatusCode)
-                throw new System.Exception("Failed to load currencies");
+         if (!response.IsSuccessStatusCode)
+            throw new System.Exception("Failed to load currencies");
 
-            var content = await response.Content.ReadAsStringAsync();
-            using var jsonDoc = JsonDocument.Parse(content);
-            var rates = jsonDoc.RootElement.GetProperty("rates");
+         var content = await response.Content.ReadAsStringAsync();
+         using var jsonDoc = JsonDocument.Parse(content);
+         var rates = jsonDoc.RootElement.GetProperty("rates");
 
-            // Dövizler
-            decimal usd = 1 / rates.GetProperty("USD").GetDecimal();
-            decimal eur = 1 / rates.GetProperty("EUR").GetDecimal();
-            decimal gbp = 1 / rates.GetProperty("GBP").GetDecimal();
-            decimal chf = 1 / rates.GetProperty("CHF").GetDecimal();
+         // 1 TRY = X doviz gelir, biz 1 doviz = Y TRY istiyoruz
+         decimal usd = 1 / rates.GetProperty("USD").GetDecimal();
+         decimal eur = 1 / rates.GetProperty("EUR").GetDecimal();
+         decimal gbp = 1 / rates.GetProperty("GBP").GetDecimal();
+         decimal chf = 1 / rates.GetProperty("CHF").GetDecimal();
 
-            // Altın fiyatları (XAU = ons altın)
-            decimal xau = 1 / rates.GetProperty("XAU").GetDecimal();
-            decimal goldGram = xau / 31.10m; // gram altın
-            decimal quarterGold = goldGram * 7.96m; // çeyrek altın yaklaşık
-            decimal goldOunce = xau; // ons
+         var lastUpdate = jsonDoc.RootElement.GetProperty("date").GetString() ?? "";
 
-            var lastUpdate = jsonDoc.RootElement.GetProperty("date").GetString() ?? "";
+         // Altin fiyatlari: gercek zamanli API ucretli oldugu icin sabit deger
+         decimal goldGram    = 3850.0m;
+         decimal quarterGold = 6300.0m;
+         decimal goldOunce   = 119700.0m;
 
-            return new CurrencyDto
-            {
-                USD = usd,
-                EUR = eur,
-                GBP = gbp,
-                CHF = chf,
-                GoldGram = goldGram,
-                QuarterGold = quarterGold,
-                GoldOunce = goldOunce,
-                LastUpdate = lastUpdate
-            };
-        }
-    }
+         return new CurrencyDto
+         {
+            USD         = usd,
+            EUR         = eur,
+            GBP         = gbp,
+            CHF         = chf,
+            GoldGram    = goldGram,
+            QuarterGold = quarterGold,
+            GoldOunce   = goldOunce,
+            LastUpdate  = lastUpdate
+         };
+      }
+   }
 }
