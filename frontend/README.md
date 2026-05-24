@@ -204,3 +204,27 @@ README.md güncellemesi - 12.05.2026
 ## Video
 
 > https://drive.google.com/file/d/10ji90qw-KjodbdUmAp8ZuCcrKjnpFoO-/view?usp=sharing
+
+## Hafta 8 - İlerleme Raporu
+
+**Tarih:** 24.05.2026
+
+---
+
+### Hafta-8 Yapılanlar
+
+- Döviz Kurları ekranı sıfırdan geliştirildi.
+- Döviz bölümü: USD, EUR, GBP, CHF — TRY karşılıkları gösteriliyor.
+- Altın bölümü: Gram Altın, Çeyrek Altın, Ons Altın fiyatları gösteriliyor.
+- Header'da son güncelleme saati ve API veri tarihi gösteriliyor.
+- Sağ üstte manuel yenile butonu eklendi.
+- Pull-to-refresh desteği eklendi.
+- Önceki dönem kullanılan API (exchangerate.host) ücretli plana geçtiği için ücretsiz frankfurter.app API'ına geçildi.
+- Altın fiyatları için güvenilir ücretsiz API bulunamamadığından sabit değer kullanıldı, ileride gerçek API ile değiştirilebilir.
+- getCurrency servisi eklendi.
+
+---
+
+## Video
+
+> https://drive.google.com/file/d/1Y3ce-RSWRLx_EUxe8ymdA7yXAty-UJ7Y/view?usp=sharing
