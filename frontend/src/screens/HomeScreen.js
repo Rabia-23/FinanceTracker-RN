@@ -86,7 +86,12 @@ export default function HomeScreen() {
          setTransactions(txs || []);
          setBudgets(bdgs || []);
       } catch (e) {
-         Alert.alert('Hata', 'Veriler yüklenemedi');
+         const msg = e?.message?.includes('timeout')
+            ? 'Sunucuya ulaşılamadı. İnternet bağlantınızı kontrol edin.'
+            : e?.message?.includes('Network')
+            ? 'Ağ hatası. Lütfen tekrar deneyin.'
+            : 'Veriler yüklenemedi. Lütfen tekrar deneyin.';
+         Alert.alert('Bağlantı Hatası', msg);
       } finally {
          setLoading(false);
          setRefreshing(false);
@@ -271,7 +276,11 @@ export default function HomeScreen() {
                </TouchableOpacity>
             </View>
             {accounts.length === 0 ? (
-               <Text style={s.empty}>Henüz hesap yok. Ekleyin!</Text>
+               <View style={s.emptyState}>
+                  <Ionicons name="card-outline" size={32} color={COLORS.textMuted} />
+                  <Text style={s.empty}>Henüz hesap yok</Text>
+                  <Text style={s.emptySub}>Ekle butonuyla ilk hesabınızı oluşturun</Text>
+               </View>
             ) : (
                <ScrollView horizontal showsHorizontalScrollIndicator={false} style={s.cardScroll}>
                {accounts.map(acc => (
@@ -357,7 +366,11 @@ export default function HomeScreen() {
                </TouchableOpacity>
             </View>
             {budgets.length === 0 ? (
-               <Text style={s.empty}>Henüz bütçe yok.</Text>
+               <View style={s.emptyState}>
+                  <Ionicons name="wallet-outline" size={32} color={COLORS.textMuted} />
+                  <Text style={s.empty}>Henüz bütçe yok</Text>
+                  <Text style={s.emptySub}>Yeni butonuyla bütçe oluşturun</Text>
+               </View>
             ) : budgets.map(b => {
                const limit    = parseFloat(b.amountLimit || 0);
                const spent    = parseFloat(b.spentAmount || 0);
@@ -620,7 +633,9 @@ const s = StyleSheet.create({
    toggleBtn:  { padding: 8, backgroundColor: '#EEF2FF', borderRadius: RADIUS.md },
    chartSub:   { fontSize: 11, color: COLORS.textMuted },
    chart:      { borderRadius: RADIUS.md, marginTop: SPACING.sm },
-   empty:   { color: COLORS.textMuted, fontSize: 13, textAlign: 'center', paddingVertical: SPACING.sm },
+   empty:    { color: COLORS.textMuted, fontSize: 13, textAlign: 'center', marginTop: 6 },
+   emptySub:  { color: COLORS.textMuted, fontSize: 11, textAlign: 'center', marginTop: 2 },
+   emptyState:{ alignItems: 'center', paddingVertical: SPACING.md },
    cardScroll: { marginHorizontal: -SPACING.sm },
    accCard: { backgroundColor: COLORS.background, borderRadius: RADIUS.lg, padding: SPACING.md,
                marginHorizontal: SPACING.sm, width: 160, alignItems: 'center' },

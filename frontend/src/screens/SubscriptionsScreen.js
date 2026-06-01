@@ -50,7 +50,12 @@ export default function SubscriptionsScreen() {
          ]);
          setSubs(s || []);
          setAccounts(a || []);
-      } catch (e) { Alert.alert('Hata', 'Veriler yüklenemedi'); }
+      } catch (e) {
+         const msg = e?.message?.includes('timeout')
+            ? 'Sunucuya ulaşılamadı. İnternet bağlantınızı kontrol edin.'
+            : 'Veriler yüklenemedi. Lütfen tekrar deneyin.';
+         Alert.alert('Bağlantı Hatası', msg);
+      }
       finally { setLoading(false); setRefreshing(false); }
    }
 

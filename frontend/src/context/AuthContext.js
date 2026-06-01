@@ -5,6 +5,17 @@ const AuthContext = createContext(null);
 const TOKEN_KEY = 'finance_token';
 const USER_KEY  = 'finance_user';
 
+
+function isTokenExpired(token) {
+   try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      const now = Math.floor(Date.now() / 1000); // saniye
+      return payload.exp < now;
+   } catch (e) {
+      return true;
+   }
+}
+
 export function AuthProvider({ children }) {
    const [token, setToken]     = useState(null);
    const [user, setUser]       = useState(null);
@@ -15,7 +26,14 @@ export function AuthProvider({ children }) {
          try {
          const t = await AsyncStorage.getItem(TOKEN_KEY);
          const u = await AsyncStorage.getItem(USER_KEY);
-         if (t && u) { setToken(t); setUser(JSON.parse(u)); }
+         if (t && u) {
+         if (isTokenExpired(t)) {
+            await AsyncStorage.multiRemove([TOKEN_KEY, USER_KEY]);
+         } else {
+            setToken(t);
+            setUser(JSON.parse(u));
+         }
+         }
          } catch (e) { console.warn(e); }
          finally { setLoading(false); }
       })();
