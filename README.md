@@ -228,3 +228,22 @@ README.md güncellemesi - 12.05.2026
 ## Video
 
 > https://drive.google.com/file/d/1Y3ce-RSWRLx_EUxe8ymdA7yXAty-UJ7Y/view?usp=sharing
+
+## Hafta 9 - İlerleme Raporu
+
+**Tarih:** 01.06.2026
+
+---
+
+### Hafta-9 Yapılanlar
+
+- Bu hafta yeni ekran eklenmedi, mevcut ekranların kalitesi artırıldı.
+- AuthContext.js'e token süresi kontrolü eklendi: uygulama her açılışında JWT token'ın exp alanı kontrol ediliyor, süresi dolmuşsa AsyncStorage temizlenip giriş ekranına yönlendiriliyor.
+- HomeScreen'deki boş durum tasarımları ikon ve açıklama metniyle zenginleştirildi (hesap ve bütçe bölümleri). Diğer ekranlarla tutarlı hale getirildi.
+- Tüm ekranlarda ağ hatası mesajları iyileştirildi: timeout, network hatası ve genel hata için ayrı mesajlar gösteriliyor.
+
+---
+
+## Video
+
+> https://drive.google.com/file/d/14b1LxzVpWQArbDogmHc6QiYvCX-D4sgN/view?usp=sharing
