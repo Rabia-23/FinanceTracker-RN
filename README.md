@@ -247,3 +247,26 @@ README.md güncellemesi - 12.05.2026
 ## Video
 
 > https://drive.google.com/file/d/14b1LxzVpWQArbDogmHc6QiYvCX-D4sgN/view?usp=sharing
+
+## Hafta 10 - İlerleme Raporu
+
+**Tarih:** 05.06.2026
+
+---
+
+### Hafta-10 Yapılanlar
+
+- Profil ekranı eklendi (6. sekme).
+- Mor gradient header: kullanıcı adının baş harflerinden oluşan avatar, kullanıcı adı ve e-posta gösterimi.
+- Finansal özet kartı: net değer (pozitifse yeşil, negatifse kırmızı), toplam gelir ve toplam gider.
+- 2×2 istatistik grid: hesap, işlem, hedef ve abonelik sayıları — her kart farklı renk kodlamasıyla.
+- Uygulama bilgisi bölümü: versiyon, backend ve platform bilgileri.
+- Çıkış Yap butonu: onay dialogu ile korunuyor, çıkış yapılınca token temizlenerek giriş ekranına yönlendiriliyor.
+- AppNavigator güncellendi: Profile sekmesi 6. tab olarak eklendi.
+- Veri yüklemede Promise.all kullanıldı — getHomeData, getSubscriptions ve getGoals paralel olarak çekiliyor.
+
+---
+
+## Video
+
+> https://drive.google.com/file/d/1eVYLNKOtcqvVwWnTHe-N8f0IYGgYrjHG/view?usp=sharing
