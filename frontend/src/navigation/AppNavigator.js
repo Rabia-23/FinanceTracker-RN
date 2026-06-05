@@ -13,6 +13,7 @@ import TransactionsScreen   from '../screens/TransactionsScreen';
 import SubscriptionsScreen  from '../screens/SubscriptionsScreen';
 import GoalsScreen          from '../screens/GoalsScreen';
 import CurrencyScreen       from '../screens/CurrencyScreen';
+import ProfileScreen        from '../screens/ProfileScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab   = createBottomTabNavigator();
@@ -23,6 +24,7 @@ const TABS = [
    { name: 'Subscriptions', label: 'Abonelik',  icon: ['repeat','repeat-outline'],                   component: SubscriptionsScreen },
    { name: 'Goals',         label: 'Hedefler',  icon: ['trophy','trophy-outline'],                   component: GoalsScreen },
    { name: 'Currency',      label: 'Döviz',     icon: ['cash','cash-outline'],                       component: CurrencyScreen },
+   { name: 'Profile',       label: 'Profil',     icon: ['person-circle','person-circle-outline'],     component: ProfileScreen },
 ];
 
 function MainTabs() {
