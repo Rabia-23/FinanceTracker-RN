@@ -257,7 +257,7 @@ README.md güncellemesi - 12.05.2026
 ### Hafta-10 Yapılanlar
 
 - Profil ekranı eklendi (6. sekme).
-- Mor gradient header: kullanıcı adının baş harflerinden oluşan avatar, kullanıcı adı ve e-posta gösterimi.
+- Mavi header: kullanıcı adının baş harflerinden oluşan avatar, kullanıcı adı ve e-posta gösterimi.
 - Finansal özet kartı: net değer (pozitifse yeşil, negatifse kırmızı), toplam gelir ve toplam gider.
 - 2×2 istatistik grid: hesap, işlem, hedef ve abonelik sayıları — her kart farklı renk kodlamasıyla.
 - Uygulama bilgisi bölümü: versiyon, backend ve platform bilgileri.
