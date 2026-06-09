@@ -77,7 +77,7 @@ Backend (ASP.NET Core) port numarası değişirse src/constants/api.js dosyasın
 - Pasta grafik: gelir/gider oranı görselleştirme
 - Bütçeler bölümü: progress bar ile harcama takibi
   - %0-60 yeşil, %60-90 sarı, %90+ kırmızı
-- Son 5 işlem listesi (tarih+kategori+tutar)
+- Son 30 işlem listesi (tarih+kategori+tutar)
 - Pull-to-refresh (ekranı aşağı çekme ile yenileme) eklendi
 - getBudgets servisi eklendi
 
